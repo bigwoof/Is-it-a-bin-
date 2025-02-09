@@ -75,6 +75,7 @@ function resetGame() {
     loadImage();
     document.querySelector('.buttons').style.display = 'block';
     document.querySelector('.score').innerHTML = 'Score: <span id="score">0</span>';
+    scoreElement = document.getElementById('score'); // Reassign scoreElement to reflect the updated DOM
 }
 
 swipeLeftButton.addEventListener('click', swipeLeft);
