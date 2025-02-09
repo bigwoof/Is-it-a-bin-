@@ -16,7 +16,6 @@ const imageElement = document.getElementById('image');
 const scoreElement = document.getElementById('score');
 const swipeLeftButton = document.getElementById('swipe-left');
 const swipeRightButton = document.getElementById('swipe-right');
-const resetButton = document.getElementById('reset');
 
 function getRandomImage() {
     const isBin = Math.random() < 0.5;
@@ -69,18 +68,8 @@ function swipeRight() {
     }
 }
 
-function resetGame() {
-    score = 0;
-    updateScore();
-    loadImage();
-    document.querySelector('.buttons').style.display = 'block';
-    document.querySelector('.score').innerHTML = 'Score: <span id="score">0</span>';
-    scoreElement = document.getElementById('score'); // Reassign scoreElement to reflect the updated DOM
-}
-
 swipeLeftButton.addEventListener('click', swipeLeft);
 swipeRightButton.addEventListener('click', swipeRight);
-resetButton.addEventListener('click', resetGame);
 
 loadImage();
 updateScore();
