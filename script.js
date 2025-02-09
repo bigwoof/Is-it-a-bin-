@@ -47,7 +47,7 @@ function updateScore() {
 }
 
 function endGame() {
-    imageElement.src = 'winning.jpg';
+    imageElement.src = 'winning.png';
     document.querySelector('.buttons').style.display = 'none';
     document.querySelector('.score').innerHTML = "Well done you know what a bin is! Please use this knowledge wisely";
 }
