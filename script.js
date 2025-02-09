@@ -1,25 +1,14 @@
-const binImages = [];
-const notBinImages = [];
+const binImages = [
+    'bins/image1.jpg',
+    'bins/image2.jpg',
+    'bins/image3.jpg'
+];
 
-function fetchImagesFromFolder(folderPath, imageArray) {
-    fetch(folderPath)
-        .then(response => response.text())
-        .then(data => {
-            const parser = new DOMParser();
-            const htmlDocument = parser.parseFromString(data, "text/html");
-            const imageTags = htmlDocument.getElementsByTagName("a");
-
-            for (let i = 0; i < imageTags.length; i++) {
-                const href = imageTags[i].getAttribute("href");
-                if (href.endsWith(".jpg") || href.endsWith(".png")) {
-                    imageArray.push(`${folderPath}/${href}`);
-                }
-            }
-        });
-}
-
-fetchImagesFromFolder('bins', binImages);
-fetchImagesFromFolder('not_bins', notBinImages);
+const notBinImages = [
+    'not_bins/image1.jpg',
+    'not_bins/image2.jpg',
+    'not_bins/image3.jpg'
+];
 
 let score = 0;
 
@@ -47,7 +36,7 @@ function updateScore() {
 }
 
 function endGame() {
-    imageElement.src = 'winning.png';
+    imageElement.src = 'winning.jpg';
     document.querySelector('.buttons').style.display = 'none';
     document.querySelector('.score').innerHTML = "Well done you know what a bin is! Please use this knowledge wisely";
 }
